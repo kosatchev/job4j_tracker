@@ -29,8 +29,8 @@ INSERT INTO public.item_state (description) VALUES
 ('в работе'),
 ('выполнена');
 
-INSERT INTO public.items (description,category_id,req_state_id,user_id) VALUES
-('Монитор гаснет через 5 минут работы и не включается',
+INSERT INTO public.items (name, description,category_id,req_state_id,user_id) VALUES
+('монитор','Монитор гаснет через 5 минут работы и не включается',
 (select id from public.users where username = 'Петр Петров'),
 (select id from public.category where description = 'гарантийный ремонт'),
 (select id from public.item_state where description = 'принята'));

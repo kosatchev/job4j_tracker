@@ -70,7 +70,9 @@ COMMENT ON TABLE public.item_state IS 'Состояние заявки';
 CREATE sequence items_id_seq;
 CREATE TABLE public.items (
 	id int4 NOT NULL DEFAULT nextval('items_id_seq'),
+	"name" text NOT NULL,
 	description text NOT NULL,
+	createdate timestamp DEFAULT now(),
 	user_id int4 NOT NULL,
 	category_id int4 NOT NULL,
 	req_state_id int4 NOT NULL,

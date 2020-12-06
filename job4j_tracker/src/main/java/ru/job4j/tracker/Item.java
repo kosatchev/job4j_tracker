@@ -15,6 +15,13 @@ public class Item implements Comparable<Item> {
 	this.time = time;
     }
 
+    public Item(String id, String name, String decs, long time) {
+	this.name = name;
+	this.decs = decs;
+	this.time = time;
+	this.id = id;
+    }
+	
     public String getId() {
 	return id;
     }

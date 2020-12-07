@@ -18,6 +18,8 @@ public class SqlTracker implements Store {
 
 	private Connection cn;
 
+	Logger log = Logger.getLogger(SqlTracker.class.getName());
+	
 	public void init() {
 		try (InputStream in = SqlTracker.class.getClassLoader().getResourceAsStream("app.properties")) {
 			Properties config = new Properties();
@@ -50,7 +52,7 @@ public class SqlTracker implements Store {
 				item.setId(String.valueOf(rs.getLong(1)));
 			}
 		} catch (SQLException ex) {
-			Logger.getLogger(SqlTracker.class.getName()).log(Level.SEVERE, null, ex);
+			log.log(Level.SEVERE, null, ex);
 		}
 		return item;
 	}
@@ -66,7 +68,7 @@ public class SqlTracker implements Store {
 				result = true;
 			}
 		} catch (SQLException ex) {
-			Logger.getLogger(SqlTracker.class.getName()).log(Level.SEVERE, null, ex);
+			log.log(Level.SEVERE, null, ex);
 		}
 
 		return result;
@@ -81,7 +83,7 @@ public class SqlTracker implements Store {
 				result = true;
 			}
 		} catch (SQLException ex) {
-			Logger.getLogger(SqlTracker.class.getName()).log(Level.SEVERE, null, ex);
+			log.log(Level.SEVERE, null, ex);
 		}
 		return result;
 	}
@@ -96,7 +98,7 @@ public class SqlTracker implements Store {
 				}
 			}
 		} catch (SQLException ex) {
-			Logger.getLogger(SqlTracker.class.getName()).log(Level.SEVERE, null, ex);
+			log.log(Level.SEVERE, null, ex);
 		}
 		return result;
 	}
@@ -112,7 +114,7 @@ public class SqlTracker implements Store {
 				}
 			}
 		} catch (SQLException ex) {
-			Logger.getLogger(SqlTracker.class.getName()).log(Level.SEVERE, null, ex);
+			log.log(Level.SEVERE, null, ex);
 		}
 		return result;
 	}
@@ -128,7 +130,7 @@ public class SqlTracker implements Store {
 				}
 			}
 		} catch (SQLException ex) {
-			Logger.getLogger(SqlTracker.class.getName()).log(Level.SEVERE, null, ex);
+			log.log(Level.SEVERE, null, ex);
 		}
 		return result;
 	}

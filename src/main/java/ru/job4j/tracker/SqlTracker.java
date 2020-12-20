@@ -17,12 +17,17 @@ public class SqlTracker implements Store {
 	}
 
 	
+	SqlTracker(Connection create) {
+		this.cn = create;
+	}
+
 
 	
 	
 	private Connection cn;
 
 	Logger log = Logger.getLogger(SqlTracker.class.getName());
+
 	
 	public void init() {
 		try (InputStream in = SqlTracker.class.getClassLoader().getResourceAsStream("app.properties")) {
@@ -107,6 +112,20 @@ public class SqlTracker implements Store {
 		return result;
 	}
 
+	@Override
+	public String toString() {
+		StringBuffer sb = new StringBuffer();
+		sb.append("----start----\n");
+		for (var i : findAll()) {
+			sb.append(i.getName() + "\n");
+		}
+		return sb.append("----end----").toString();
+	}
+
+	
+	
+	
+	
 	@Override
 	public List<Item> findByName(String key) {
 		List<Item> result = new ArrayList<>();
